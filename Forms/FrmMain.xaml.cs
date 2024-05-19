@@ -49,7 +49,6 @@ public partial class FrmMain : Window
         }
     }
 
-    string[] ignore = ["bin", "obj", ".vs", ".git", ".github", ".config"];
     private void btnStart_Click(object sender, RoutedEventArgs e)
     {
         if (!vm.IsWorking)
@@ -90,7 +89,7 @@ public partial class FrmMain : Window
 
         foreach (var dir in dirInfo.GetDirectories())
         {
-            if (ignore.Contains(dir.Name)) continue;
+            if (vm.Ignore.Contains(dir.Name)) continue;
             if (vm.IsNotWorking) break;
             var item = new Models.TreeViewItem { IsDirectory = true, Name = dir.Name, };
             FillContent(dir).ForEach(x => item.Items.Add(x));

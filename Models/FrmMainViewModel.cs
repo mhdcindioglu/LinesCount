@@ -24,7 +24,21 @@ public class FrmMainViewModel : INotifyPropertyChanged
             }
         }
     }
-    
+
+    private string _ignore = "bin,obj,.vs,.git,.github,.config,packages,imgs,fonts,libs,lib";
+    public string Ignore
+    {
+        get => _ignore;
+        set
+        {
+            if (_ignore != value)
+            {
+                _ignore = value;
+                OnPropertyChanged(nameof(Ignore));
+            }
+        }
+    }
+
     private string _startBtnTitle = "Start";
     public string StartBtnTitle
     {

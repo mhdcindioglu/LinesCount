@@ -12,10 +12,10 @@
     </Window.DataContext>
     <Grid>
         <Label Content="App Path:" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="0,0,5,1"/>
-        <TextBox x:Name="txtDir" Text="{Binding Dir, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsWorking, UpdateSourceTrigger=PropertyChanged}" Background="{Binding TxtDirBackground, UpdateSourceTrigger=PropertyChanged}" Margin="80,14,87,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnSelectDir" IsEnabled="{Binding IsNotWorking, UpdateSourceTrigger=PropertyChanged}" Content="..." Margin="0,14,61,0" Padding="5,0,5,0" HorizontalAlignment="Right" Width="21" Height="21" VerticalAlignment="Top" Click="btnSelectDir_Click"/>
-        <Button x:Name="btnStart" Content="{Binding StartBtnTitle, UpdateSourceTrigger=PropertyChanged}" Margin="0,14,10,0" Padding="5,0,5,0" HorizontalAlignment="Right" Width="46" Height="22" VerticalAlignment="Top" Click="btnStart_Click"/>
-        <TreeView x:Name="tvResult" Margin="10,41,10,10">
+        <TextBox x:Name="txtDir" Text="{Binding Dir, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsWorking, UpdateSourceTrigger=PropertyChanged}" Background="{Binding TxtDirBackground, UpdateSourceTrigger=PropertyChanged}" Margin="80,14,36,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnSelectDir" IsEnabled="{Binding IsNotWorking, UpdateSourceTrigger=PropertyChanged}" Content="..." Margin="0,14,10,0" Padding="5,0,5,0" HorizontalAlignment="Right" Width="21" Height="21" VerticalAlignment="Top" Click="btnSelectDir_Click"/>
+        <Button x:Name="btnStart" Content="{Binding StartBtnTitle, UpdateSourceTrigger=PropertyChanged}" Margin="0,39,10,0" Padding="5,0,5,0" HorizontalAlignment="Right" Width="46" Height="22" VerticalAlignment="Top" Click="btnStart_Click"/>
+        <TreeView x:Name="tvResult" Margin="10,66,10,10">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate DataType="{x:Type viewmodel:TreeViewItem}" ItemsSource="{Binding Items}">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
@@ -25,5 +25,7 @@
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
+        <Label Content="Ignore:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="0,0,5,1"/>
+        <TextBox x:Name="txtIgnore" Text="{Binding Ignore, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsWorking, UpdateSourceTrigger=PropertyChanged}" Background="{Binding TxtDirBackground, UpdateSourceTrigger=PropertyChanged}" Margin="80,40,61,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
     </Grid>
 </Window>
