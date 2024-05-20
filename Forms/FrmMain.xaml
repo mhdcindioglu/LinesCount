@@ -27,5 +27,8 @@
         </TreeView>
         <Label Content="Ignore:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="0,0,5,1"/>
         <TextBox x:Name="txtIgnore" Text="{Binding Ignore, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsWorking, UpdateSourceTrigger=PropertyChanged}" Background="{Binding TxtDirBackground, UpdateSourceTrigger=PropertyChanged}" Margin="80,40,61,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblWorking" Content="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="175,220,175,187" Width="447" FontSize="12" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0" Height="18" Visibility="{Binding IsVisible, Mode=OneWay}" Panel.ZIndex="2"/>
+        <ProgressBar x:Name="pbWorking" Margin="175,220,175,220" Visibility="{Binding IsVisible, Mode=OneWay}" Panel.ZIndex="2"/>
+        <Frame x:Name="frmWorking" Content="Frame" Background="#7FFFFFFF" Visibility="{Binding IsVisible, Mode=OneWay}" Panel.ZIndex="1"/>
     </Grid>
 </Window>

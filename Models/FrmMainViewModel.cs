@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System.Windows;
 
 namespace LinesCount.Models;
 
@@ -67,8 +68,23 @@ public class FrmMainViewModel : INotifyPropertyChanged
         }
     }
 
+    private string _name;
+    public string Name
+    {
+        get => _name;
+        set
+        {
+            if (_name != value)
+            {
+                _name = value;
+                OnPropertyChanged(nameof(Name));
+            }
+        }
+    }
+
     private bool _isWorking = false;
     public bool IsNotWorking => !IsWorking;
+    public Visibility IsVisible => IsWorking ? Visibility.Visible : Visibility.Hidden;
     public bool IsWorking
     {
         get => _isWorking;

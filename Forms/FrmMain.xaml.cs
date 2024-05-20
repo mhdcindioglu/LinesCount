@@ -56,6 +56,7 @@ public partial class FrmMain : Window
             vm.StartBtnTitle = "Stop";
             vm.IsWorking = true;
             vm.TxtDirBackground = System.Drawing.Color.Red;
+            System.Windows.Forms.Application.DoEvents();
 
             DirectoryInfo dirInfo = new(vm.Dir);
             if (dirInfo.Exists)
@@ -66,6 +67,8 @@ public partial class FrmMain : Window
                 {
                     if (vm.IsNotWorking) break;
                     tvResult.Items.Add(item);
+                    vm.Name = item.Name;
+                    System.Windows.Forms.Application.DoEvents();
                     allCount += item.AllLines;
                 }
                 tvResult.Items.Insert(0, new Models.TreeViewItem { Name = "Total Lines:", Lines = allCount, });
@@ -94,12 +97,16 @@ public partial class FrmMain : Window
             var item = new Models.TreeViewItem { IsDirectory = true, Name = dir.Name, };
             FillContent(dir).ForEach(x => item.Items.Add(x));
             items.Add(item);
+            vm.Name = item.Name;
+            System.Windows.Forms.Application.DoEvents();
         }
 
         foreach (var file in dirInfo.GetFiles())
         {
             if (vm.IsNotWorking) break;
             items.Add(new Models.TreeViewItem { Name = file.Name, Lines = File.ReadAllLines(file.FullName).Length, });
+            vm.Name = file.Name;
+            System.Windows.Forms.Application.DoEvents();
         }
 
         return items;
