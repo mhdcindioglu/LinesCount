@@ -26,7 +26,7 @@ public class FrmMainViewModel : INotifyPropertyChanged
         }
     }
 
-    private string _ignore = "bin,obj,.vs,.git,.github,.config,packages,imgs,fonts,libs,lib";
+    private string _ignore = "bin,obj,.vs,.git,.github,.config,packages,imgs,fonts,libs,lib,logs,Sql";
     public string Ignore
     {
         get => _ignore;
